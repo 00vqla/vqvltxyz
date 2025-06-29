@@ -24,8 +24,9 @@
     <div class="home-video-container">
       <div class="home-video-wrapper">
         <div class="home-video-parent">
-          
-          <img src="./home_files/new-ingen.gif" class="home-video" width="10vh" height="10vh" alt="Random gif">
+          <button id="home-video-text" class="home-video-text" onclick="window.location.href='media.html'">MEDIA</button>
+          <img id="home-video-gif" class="home-video-gif" src="./home_files/vhs-camera.gif" alt="Media button Translucent spinning camera gif ">
+          <img src="./home_files/new-ingen.gif" class="home-video" width="10vh" height="10vh" alt="ingen" onclick="window.location.href='media.html'" style="cursor: pointer;">
         </div>
       </div>
     </div>
@@ -53,7 +54,7 @@
         </div>
         <div class="home-options-row">
           <div class="home-options-item">
-            <div class="home-options-shop-content">
+            <div class="home-options-btn-content">
               <button id="shop-button" class="home-options-wrapper shop-button" onclick="window.location.href='lost.html'">
                 <img style="transform: scale(1.2) translateY(0)" class="home-options-icon" src="./home_files/music.gif" alt="Shop button spinning icon">
                 <h3 class="home-options-text home-options-text-green">VAULT</h3>
@@ -61,23 +62,23 @@
             </div>
           </div>
           <div class="home-options-item">
-            <div class="home-options-shop-content">
+            <div class="home-options-btn-content">
               <button id="testing-button" class="home-options-wrapper rallyrace-button" onclick="window.open('https://github.com/00vqla', '_blank')">
-                <img class="home-options-icon" style="transform: scale(1.2)" src="./home_files/vhs-camera.gif" alt="GITHUB PAGE">
-                <h3 class="home-options-text home-options-text-black">GITHUB</h3>
+                <img style="transform: scale(1.2) translateY(0)" class="home-options-icon" src="./home_files/vhs-camera.gif" alt="GITHUB PAGE">
+                <h3 class="home-options-text home-options-text-black github-align-fix">GITHUB</h3>
               </button>
             </div>
           </div>
           <div class="home-options-item">
-            <div class="home-options-about-content">
+            <div class="home-options-btn-content">
               <button id="about-button" class="home-options-wrapper about-button" onclick="window.location.href='about.html'">
-                <img class="home-options-icon" src="./home_files/question-block-red.gif" alt="About button Spinning mystery box icon">
+                <img class="home-options-icon" src="./home_files/question-block-red.gif" alt="About">
                 <h3 class="home-options-text home-options-text-red">ABOUT</h3>
               </button>
             </div>
           </div>
           <div class="home-options-item">
-            <div class="home-options-contact-content">
+            <div class="home-options-btn-content">
               <button id="contact-button" class="home-options-wrapper contact-button" onclick="window.location.href='lost.html'">
                 <img class="home-options-icon" src="./home_files/pager.gif" alt="About button Spinning pager icon">
                 <h3 class="home-options-text home-options-text-green">
@@ -109,7 +110,7 @@
       <img class="home-video-ipad-mobile" src="./home_files/ipad.svg" alt="">
       <button id="home-video-wrapper-mobile" class="home-video-wrapper-mobile">
         <h1 id="home-video-text" class="home-video-text">MEDIA</h1>
-        <img src="./home_files/new-ingen.gif" class="home-video-gif-mobile" alt="Random gif">
+        <img src="./home_files/new-ingen.gif" class="home-video-gif-mobile" alt="Random gif" onclick="window.location.href='media.html'" style="cursor: pointer;">
       </button>
     </div>
     <div class="home-section-button-mobile">
@@ -122,9 +123,7 @@
       <div class="home-section-button-row-mobile">
         <button id="testing-button" class="home-options-wrapper rallyrace-button" onclick="window.open('https://github.com/00vqla', '_blank')">
           <img class="home-options-icon" style="transform: scale(1) translateY(5px)" src="./home_files/vhs-camera.gif" alt="GITHUB PAGE">
-          <h3 style="transform: translateY(0)" class="home-options-text home-options-text-black">
-            GITHUB
-          </h3>
+          <h3 class="home-options-text home-options-text-black github-align-fix">GITHUB</h3>
         </button>
       </div>
       <div class="home-section-button-row-mobile">

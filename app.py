@@ -11,7 +11,7 @@ def serve_static(filename):
 # Root route - serves root.html
 @app.route('/')
 def root():
-    return send_from_directory('.', 'root.html')
+    return send_from_directory('.', 'index.html')
 
 # Home route - serves home.html
 @app.route('/home')
