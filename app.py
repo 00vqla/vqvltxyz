@@ -53,5 +53,60 @@ def terms():
 def privacy():
     return send_from_directory('.', 'privacy.html')
 
+# Login route - serves login.html
+@app.route('/login')
+def login():
+    return send_from_directory('.', 'login.html')
+
+# Vault route - serves vault.html
+@app.route('/vault')
+def vault():
+    return send_from_directory('.', 'vault.html')
+
+# Media route - serves media.html
+@app.route('/media')
+def media():
+    return send_from_directory('.', 'media.html')
+
+# Tools route - serves tools.html
+@app.route('/tools')
+def tools():
+    return send_from_directory('.', 'tools.html')
+
+# Lost route - serves lost.html
+@app.route('/lost')
+def lost():
+    return send_from_directory('.', 'lost.html')
+
+# Telegram route - serves telegram.html
+@app.route('/telegram')
+def telegram():
+    return send_from_directory('.', 'telegram.html')
+
+# Artists route - serves artists.html
+@app.route('/artists')
+def artists():
+    return send_from_directory('.', 'artists.html')
+
+# Videos route - serves videos.html
+@app.route('/videos')
+def videos():
+    return send_from_directory('.', 'videos.html')
+
+# Chug route - serves chug.html
+@app.route('/chug')
+def chug():
+    return send_from_directory('.', 'chug.html')
+
+# c_video_list route - serves c_video_list.html
+@app.route('/c_video_list')
+def c_video_list():
+    return send_from_directory('.', 'c_video_list.html')
+
+# c_pic_list route - serves c_pic_list.html
+@app.route('/c_pic_list')
+def c_pic_list():
+    return send_from_directory('.', 'c_pic_list.html')
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8000) 

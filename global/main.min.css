@@ -249,12 +249,12 @@ button:focus {
 #red { color: #f45555; }
 #blue { color: #395cc9; }
 
-.awge-content {
+.vqvlt-content {
   width: 100%;
   height: 100%;
 }
 
-.awge-tube-border {
+.vqvlt-tube-border {
   width: 100%;
   height: 100%;
   background-image: url("border-stretched.png");
@@ -268,7 +268,7 @@ button:focus {
 
 @media screen and (max-width: 480px) and (orientation: portrait),
 screen and (max-height: 480px) and (orientation: landscape) {
-  .awge-tube-border {
+  .vqvlt-tube-border {
     display: none;
     height: 100%;
     width: 100%;
@@ -277,13 +277,13 @@ screen and (max-height: 480px) and (orientation: landscape) {
 
 @media screen and (max-width: 480px) and (orientation: portrait),
 screen and (max-height: 480px) and (orientation: landscape) {
-  .awge-tube-border-mobile {
+  .vqvlt-tube-border-mobile {
     display: inherit;
     background-image: url("mobile-stretch-2.png");
   }
 }
 
-.awge-tube-shape {
+.vqvlt-tube-shape {
   background: #000;
   color: #fff;
   text-align: center;
@@ -292,7 +292,7 @@ screen and (max-height: 480px) and (orientation: landscape) {
   width: 100%;
 }
 
-.awge-tube-shape::after {
+.vqvlt-tube-shape::after {
   content: " ";
   display: block;
   position: absolute;
@@ -307,7 +307,7 @@ screen and (max-height: 480px) and (orientation: landscape) {
   animation: flicker 0.15s infinite;
 }
 
-.awge-tube-shape::before {
+.vqvlt-tube-shape::before {
   content: " ";
   display: block;
   position: absolute;
@@ -322,7 +322,7 @@ screen and (max-height: 480px) and (orientation: landscape) {
   pointer-events: none;
 }
 
-.awge-copyright {
+.vqvlt-copyright {
   bottom: 10vh;
   left: 50%;
   transform: translateX(-50%);
@@ -331,12 +331,12 @@ screen and (max-height: 480px) and (orientation: landscape) {
 
 @media screen and (max-width: 480px) and (orientation: portrait),
 screen and (max-height: 480px) and (orientation: landscape) {
-  .awge-copyright {
+  .vqvlt-copyright {
     bottom: 5px;
   }
 }
 
-.awge-copyright-text {
+.vqvlt-copyright-text {
   font-family: "Press Start 2P", monospace;
   font-weight: normal;
   font-size: 1em;
@@ -349,13 +349,13 @@ screen and (max-height: 480px) and (orientation: landscape) {
 
 @media screen and (max-width: 480px) and (orientation: portrait),
 screen and (max-height: 480px) and (orientation: landscape) {
-  .awge-copyright-text {
+  .vqvlt-copyright-text {
     line-height: 1.2em;
     font-size: 0.6em;
   }
 }
 
-.awge-stars {
+.vqvlt-stars {
   box-shadow: 1264px 891px #FFF , 1256px 1451px #FFF , 1968px 1452px #FFF , 1750px 1559px #FFF , 1681px 508px #FFF , 919px 1788px #FFF , 1210px 1014px #FFF , 557px 1819px #FFF , 1726px 571px #FFF , 768px 1925px #FFF , 1121px 797px #FFF , 618px 1802px #FFF , 1942px 1115px #FFF , 1357px 1381px #FFF , 1593px 472px #FFF , 1973px 717px #FFF , 618px 1030px #FFF , 867px 1723px #FFF , 12px 31px #FFF , 1075px 1781px #FFF , 1799px 1846px #FFF , 635px 66px #FFF , 1129px 611px #FFF , 824px 1377px #FFF , 7px 762px #FFF , 1971px 1989px #FFF , 814px 1331px #FFF , 582px 1315px #FFF , 1723px 249px #FFF , 1412px 1265px #FFF , 1658px 1818px #FFF , 1408px 1517px #FFF , 939px 683px #FFF , 664px 628px #FFF , 828px 970px #FFF , 1969px 868px #FFF , 470px 1910px #FFF , 27px 1744px #FFF , 897px 1717px #FFF , 1032px 1664px #FFF , 151px 356px #FFF , 368px 844px #FFF , 518px 1187px #FFF , 1835px 528px #FFF , 1273px 304px #FFF , 1030px 1514px #FFF , 353px 729px #FFF , 477px 1959px #FFF , 1203px 713px #FFF , 1628px 848px #FFF , 1539px 200px #FFF , 1515px 12px #FFF , 1015px 754px #FFF , 469px 1450px #FFF , 1515px 96px #FFF , 1535px 1027px #FFF , 778px 817px #FFF , 323px 255px #FFF , 760px 649px #FFF , 864px 557px #FFF , 125px 165px #FFF , 366px 1105px #FFF , 1724px 1220px #FFF , 110px 1203px #FFF , 1240px 824px #FFF , 183px 431px #FFF , 1576px 443px #FFF , 1158px 1990px #FFF , 1273px 1200px #FFF , 1247px 665px #FFF , 592px 1367px #FFF , 639px 18px #FFF , 1607px 1675px #FFF , 888px 1983px #FFF , 1010px 1448px #FFF , 1826px 822px #FFF , 1278px 282px #FFF , 947px 569px #FFF , 812px 1658px #FFF , 525px 5px #FFF , 64px 1586px #FFF , 885px 871px #FFF , 254px 1895px #FFF , 1239px 1660px #FFF , 1864px 512px #FFF , 879px 1752px #FFF , 1650px 338px #FFF , 1731px 723px #FFF , 678px 873px #FFF , 1188px 340px #FFF , 1446px 1722px #FFF , 750px 702px #FFF , 577px 1209px #FFF , 682px 1545px #FFF , 1843px 447px #FFF , 959px 1403px #FFF , 1686px 1625px #FFF , 1355px 910px #FFF , 500px 51px #FFF , 566px 1648px #FFF;
   position: absolute;
   width: 3px;
@@ -364,19 +364,19 @@ screen and (max-height: 480px) and (orientation: landscape) {
   animation: animStar 120s linear infinite;
 }
 
-.awge-space-wrapper {
+.vqvlt-space-wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
 
-.awge-space-container {
+.vqvlt-space-container {
   width: 100%;
   height: 100%;
 }
 
-.awge-space-option {
+.vqvlt-space-option {
   font-family: "Press Start 2P", monospace;
   font-weight: normal;
   font-size: 1em;
@@ -391,7 +391,7 @@ screen and (max-height: 480px) and (orientation: landscape) {
   -ms-user-select: none;
 }
 
-.awge-space-header {
+.vqvlt-space-header {
   font-family: "Press Start 2P", monospace;
   font-weight: normal;
   font-size: 1em;
@@ -405,7 +405,7 @@ screen and (max-height: 480px) and (orientation: landscape) {
   -ms-user-select: none;
 }
 
-.awge-space-text {
+.vqvlt-space-text {
   font-family: "Press Start 2P", monospace;
   font-weight: normal;
   font-size: 1em;
@@ -420,7 +420,7 @@ screen and (max-height: 480px) and (orientation: landscape) {
   -ms-user-select: none;
 }
 
-.awge-home {
+.vqvlt-home {
   position: absolute;
   top: 10vh;
   left: 10vw;
@@ -430,29 +430,29 @@ screen and (max-height: 480px) and (orientation: landscape) {
   z-index: 2;
 }
 
-.awge-home>img {
+.vqvlt-home>img {
   width: 100%;
   height: auto;
 }
 
 @media screen and (max-width: 480px) and (orientation: portrait),
 screen and (max-height: 480px) and (orientation: landscape) {
-  .awge-home {
+  .vqvlt-home {
     display: none;
   }
 }
 
-.awge-tc {
+.vqvlt-tc {
   cursor: pointer;
 }
 
-.awge-tc:hover {
+.vqvlt-tc:hover {
   color: #d8d8d8;
 }
 
 @media screen and (max-width: 480px) and (orientation: portrait),
 screen and (max-height: 480px) and (orientation: landscape) {
-  #awge-back {
+  #vqvlt-back {
     display: initial !important;
   }
 }
@@ -627,7 +627,7 @@ screen and (max-height: 480px) and (orientation: landscape) {
 }
 
 .about-artists {
-  background-image: url("https://dwvo2npct47gg.cloudfront.net/gifs/about-background-combine.gif");
+  background-image: url("./bg2.gif");
   background-position: center;
 }
 
@@ -640,7 +640,7 @@ screen and (max-height: 480px) and (orientation: landscape) {
 }
 
 .about-people {
-  background-image: url("https://dwvo2npct47gg.cloudfront.net/gifs/awge-city.gif");
+  background-image: url("./bg2.gif");
   background-position: center;
 }
 
@@ -1119,7 +1119,7 @@ screen and (max-height: 480px) and (orientation: landscape) {
   font-size: 1em;
   color: #fff;
   margin: 5px;
-  font-size: 1.3em;
+  font-size: 1em;
   background: #545454;
   border-radius: 8px;
   padding: 7px;
@@ -1156,7 +1156,7 @@ screen and (max-height: 480px) and (orientation: landscape) {
 }
 
 .home-content {
-  background-image: url("https://dwvo2npct47gg.cloudfront.net/gifs/home-background-2.gif");
+  background-image: url("bg.gif");
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -2199,7 +2199,7 @@ screen and (max-height: 480px) and (orientation: landscape) {
   height: 100vh;
   width: 100vw;
   z-index: -1;
-  background-image: url("https://dwvo2npct47gg.cloudfront.net/gifs/testing-3.gif");
+  background-image: url("./bg2.gif");
   background-size: cover;
 }
 
@@ -2546,7 +2546,7 @@ screen and (max-height: 480px) and (orientation: landscape) {
   }
 }
 
-.product-option-awge {
+.product-option-vqvlt {
   flex: 1;
   margin: 20px 0;
   opacity: 0.85;
@@ -2558,13 +2558,13 @@ screen and (max-height: 480px) and (orientation: landscape) {
   box-shadow: 3px 0 #1a2d93,-3px 0 #1a2d93,0 -3px #1a2d93,0 3px #1a2d93,6px 0 #000,-6px 0 #000,0 -6px #000,0 6px #000,0 0 0 3px #000;
 }
 
-.product-option-awge:hover {
+.product-option-vqvlt:hover {
   opacity: 1;
 }
 
 @media screen and (max-width: 480px) and (orientation: portrait),
 screen and (max-height: 480px) and (orientation: landscape) {
-  .product-option-awge {
+  .product-option-vqvlt {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -3052,7 +3052,7 @@ screen and (max-height: 480px) and (orientation: landscape) {
   }
 }
 
-#awge-content {
+#vqvlt-content {
   background: #000;
 }
 

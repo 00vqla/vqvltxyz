@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/tools", "destination": "/tools.html" },
+    { "source": "/media", "destination": "/media.html" },
+    { "source": "/login", "destination": "/login.html" },
+    { "source": "/vault", "destination": "/vault.html" },
+    { "source": "/lost", "destination": "/lost.html" },
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/artists", "destination": "/artists.html" },
+    { "source": "/forum", "destination": "/forum.html" },
+    { "source": "/telegram", "destination": "/telegram.html" },
+    { "source": "/videos", "destination": "/videos.html" },
+    { "source": "/", "destination": "/index.html" }
+  ]
+} 
