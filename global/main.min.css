@@ -379,7 +379,7 @@ screen and (max-height: 480px) and (orientation: landscape) {
 .vqvlt-space-option {
   font-family: "Press Start 2P", monospace;
   font-weight: normal;
-  font-size: 1em;
+  font-size: 0.5em;
   color: #fff;
   font-weight: normal;
   cursor: pointer;
