@@ -27,7 +27,7 @@
     <div class="landing-start-container">
       <h2 id="landing-start-button" class="landing-start-text">
         <span class="landing-start-arrow">›</span>
-        <button style="cursor:pointer;" onclick="window.location.href='home'">PRESS START</button>
+        <button style="cursor:pointer;" onclick="newPage('home'); return false;">PRESS START</button>
       </h2>
     </div>
   </div>
@@ -39,4 +39,39 @@
     </div>
   </div>
 </body>
+<script>
+function newPage(page) {
+  const pageMap = {
+    home: 'home.html',
+    contact: 'contact.html',
+    about: 'about.html',
+    tools: 'tools.html',
+    vault: 'vault.html',
+    media: 'media.html',
+    lost: 'lost.html',
+    chug: 'chug.html',
+    terms: 'terms.html',
+    // add more mappings as needed
+  };
+  const url = pageMap[page] || (page + '.html');
+  fetch(url)
+    .then(response => response.text())
+    .then(html => {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = html;
+      const newContent = tempDiv.querySelector('#vqvlt-content');
+      if (newContent) {
+        const currentContent = document.querySelector('#vqvlt-content');
+        currentContent.replaceWith(newContent);
+        const newUrl = '/' + page;
+        history.pushState({page: page}, '', newUrl);
+      }
+    });
+}
+window.addEventListener('popstate', function(event) {
+  if (event.state && event.state.page) {
+    newPage(event.state.page);
+  }
+});
+</script>
 </html>

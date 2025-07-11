@@ -95,7 +95,7 @@
     <!-- End Google Tag Manager (noscript) -->
     <div id="vqvlt-tube-border" class="vqvlt-tube-border"></div>
     <div class="vqvlt-tube-shape">
-      <div id="vqvlt-content" class="vqvlt-content" style="animation: 3.4s linear 0s 1 normal none running turn-on;"><button id="vqvlt-home" class="vqvlt-home" onclick="window.location.href='chug'">
+      <div id="vqvlt-content" class="vqvlt-content" style="animation: 3.4s linear 0s 1 normal none running turn-on;"><button id="vqvlt-home" class="vqvlt-home" onclick="newPage('chug'); return false;">
   <img src="./artists_files/vqvlt-home.gif" alt="Home button spinning globe">
 </button>
 
@@ -107,7 +107,7 @@
     </div>
     <div class="about-info">
       <h1 class="about-info-text">
-        <span class="about-artists-artist" for="Carti"><button onclick="window.location.href='c_carti_videos'">Playboi Carti</button></span><br>
+        <span class="about-artists-artist" for="Carti"><button onclick="newPage('c_carti_videos'); return false;">Playboi Carti</button></span><br>
         <span class="about-artists-artist" for="Ken"><button>Ken Carson</button></span><br>
         <span class="about-artists-artist" for="Lone"><button>Destroy Lonely</button></span><br>
         <span class="about-artists-artist" for="Lil O"><button>Osamason</button></span><br>
@@ -120,14 +120,12 @@
     <h4 class="vqvlt-copyright-text">
       ©&nbsp;&nbsp;2025&nbsp;&nbsp;VQVLT <br>
       <span class="vqvlt-tc vqvlt-terms"><button>Terms and Conditions</button></span>
-      <br>
-      <span class="vqvlt-tc vqvlt-privacy"><button>Privacy Policy</button></span>
     </h4>
   </div>
 </div>
 <div class="about-content-mobile about-background about-artists">
   <div class="home-navbar home-navbar-mobile">
-    <button onclick="window.location.href='chug'">
+    <button onclick="newPage('chug'); return false;">
       <img src="./artists_files/vq-hitone.png" alt="Home button VQVLT logo">
     </button>
   </div>
@@ -137,7 +135,7 @@
     </div>
     <div class="about-third-text-mobile">
       <h1 class="about-info-text">
-        <span class="about-artists-artist" for="Carti"><button onclick="window.location.href='c_carti_videos'">Playboi Carti</button></span><br>
+        <span class="about-artists-artist" for="Carti"><button onclick="newPage('c_carti_videos'); return false;">Playboi Carti</button></span><br>
         <span class="about-artists-artist" for="Ken"><button>Ken Carson</button></span><br>
         <span class="about-artists-artist" for="Lone"><button>Destroy Lonely</button></span><br>
         <span class="about-artists-artist" for="Lil O"><button>Osamason</button></span><br>
@@ -149,8 +147,6 @@
       <h4 class="vqvlt-copyright-text">
         ©&nbsp;&nbsp;2025&nbsp;&nbsp;VQVLT <br>
         <span class="vqvlt-tc vqvlt-terms"><button>Terms and Conditions</button></span>
-        <br>
-        <span class="vqvlt-tc vqvlt-privacy"><button>Privacy Policy</button></span>
       </h4>
     </div>
   </div>
@@ -282,4 +278,67 @@
     </script>
   
 
-<deepl-input-controller translate="no"><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://cofdbpoegempjloogbagkncekinflcnj/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller></body></html>
+<deepl-input-controller translate="no"><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://cofdbpoegempjloogbagkncekinflcnj/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller>
+<script>
+function newPage(page) {
+  const pageMap = {
+    home: 'home.html',
+    contact: 'contact.html',
+    about: 'about.html',
+    tools: 'tools.html',
+    vault: 'vault.html',
+    media: 'media.html',
+    lost: 'lost.html',
+    chug: 'chug.html',
+    c_video_list: 'c_video_list.html',
+    c_pic_list: 'c_pic_list.html',
+    c_carti_videos: 'c_carti_videos.html',
+    terms: 'terms.html',
+    // add more mappings as needed
+  };
+  const url = pageMap[page] || (page + '.html');
+  fetch(url)
+    .then(response => response.text())
+    .then(html => {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = html;
+      const newContent = tempDiv.querySelector('#vqvlt-content');
+      if (newContent) {
+        const currentContent = document.querySelector('#vqvlt-content');
+        currentContent.replaceWith(newContent);
+        const newUrl = '/' + page;
+        history.pushState({page: page}, '', newUrl);
+        if (page === 'vault') {
+          attachVaultLoginLogic();
+        }
+      }
+    });
+}
+window.addEventListener('popstate', function(event) {
+  if (event.state && event.state.page) {
+    newPage(event.state.page);
+  }
+});
+function attachVaultLoginLogic() {
+  var pwInput = document.getElementById('vault-password');
+  var loginBtn = document.querySelector('#login-section button');
+  if (!pwInput || !loginBtn) return;
+  function checkVaultPassword() {
+    var pw = pwInput.value;
+    if (pw === 'vqvlt') {
+      document.getElementById('login-section').style.display = 'none';
+      document.getElementById('vault-content').style.display = 'block';
+    } else {
+      document.getElementById('login-error').style.display = 'block';
+    }
+  }
+  loginBtn.onclick = checkVaultPassword;
+  pwInput.onkeydown = function(e) {
+    if (e.key === 'Enter') checkVaultPassword();
+  };
+}
+if (window.location.pathname.replace(/^\//, '').replace(/\.html$/, '') === 'vault') {
+  attachVaultLoginLogic();
+}
+</script>
+</body></html>

@@ -29,11 +29,11 @@
   <body>
     <div id="vqvlt-tube-border" class="vqvlt-tube-border"></div>
     <div class="vqvlt-tube-shape">
-      <div id="vqvlt-content" class="vqvlt-content" style="animation: 3.4s linear 0s 1 normal none running turn-on;"><button id="vqvlt-home" class="vqvlt-home" onclick="window.location.href='home'">
+      <div id="vqvlt-content" class="vqvlt-content" style="animation: 3.4s linear 0s 1 normal none running turn-on;"><button id="vqvlt-home" class="vqvlt-home" onclick="newPage('home'); return false;">
   <img src="./media_files/vqvlt-home.gif" alt="Home button spinning globe">
 </button>
 <div class="home-navbar home-navbar-mobile">
-  <button onclick="window.location.href='home'">
+  <button onclick="newPage('home'); return false;">
     <img src="./media_files/vq-hitone.png" alt="Home button VQVLT logo">
   </button>
 </div>
@@ -41,13 +41,73 @@
 <div class="vqvlt-space-container">
   <div class="vqvlt-space-wrapper">
     <h1>
-      <button class="vqvlt-space-option" id="media-directed" onclick="window.location.href='chug'">
+      <button class="vqvlt-space-option" id="media-directed" onclick="newPage('chug'); return false;">
         Chug's Archives
       </button>
     </h1>
     <br>
     <br>
     <br>
-    <h1><button class="vqvlt-space-option" id="media-videos" onclick="window.location.href='lost'">Random Archives #1</button></h1>
+    <h1><button class="vqvlt-space-option" id="media-videos" onclick="newPage('lost'); return false;">Random Archives #1</button></h1>
   </div>
 </div>
+<script>
+function newPage(page) {
+  const pageMap = {
+    home: 'home.html',
+    contact: 'contact.html',
+    about: 'about.html',
+    tools: 'tools.html',
+    vault: 'vault.html',
+    media: 'media.html',
+    lost: 'lost.html',
+    chug: 'chug.html',
+    terms: 'terms.html',
+    // add more mappings as needed
+  };
+  const url = pageMap[page] || (page + '.html');
+  fetch(url)
+    .then(response => response.text())
+    .then(html => {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = html;
+      const newContent = tempDiv.querySelector('#vqvlt-content');
+      if (newContent) {
+        const currentContent = document.querySelector('#vqvlt-content');
+        currentContent.replaceWith(newContent);
+        const newUrl = '/' + page;
+        history.pushState({page: page}, '', newUrl);
+        if (page === 'vault') {
+          attachVaultLoginLogic();
+        }
+      }
+    });
+}
+window.addEventListener('popstate', function(event) {
+  if (event.state && event.state.page) {
+    newPage(event.state.page);
+  }
+});
+function attachVaultLoginLogic() {
+  var pwInput = document.getElementById('vault-password');
+  var loginBtn = document.querySelector('#login-section button');
+  if (!pwInput || !loginBtn) return;
+  function checkVaultPassword() {
+    var pw = pwInput.value;
+    if (pw === 'vqvlt') {
+      document.getElementById('login-section').style.display = 'none';
+      document.getElementById('vault-content').style.display = 'block';
+    } else {
+      document.getElementById('login-error').style.display = 'block';
+    }
+  }
+  loginBtn.onclick = checkVaultPassword;
+  pwInput.onkeydown = function(e) {
+    if (e.key === 'Enter') checkVaultPassword();
+  };
+}
+// Attach on initial load if on vault page
+if (window.location.pathname.replace(/^\//, '').replace(/\.html$/, '') === 'vault') {
+  attachVaultLoginLogic();
+}
+</script>

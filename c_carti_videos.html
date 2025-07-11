@@ -57,17 +57,17 @@
     <script src="./videos_files/main.min.js"></script>
   <body>
     
-    <div id="awge-tube-border" class="awge-tube-border"></div>
-    <div class="awge-tube-shape">
-      <div id="awge-content" class="awge-content" style="animation: 3.4s linear 0s 1 normal none running turn-on;"><button id="awge-home" class="awge-home" onclick="window.location.href='c_video_list'">
-  <img src="./videos_files/awge-home.gif" alt="Home button spinning globe">
+    <div id="vqvlt-tube-border" class="vqvlt-tube-border"></div>
+    <div class="vqvlt-tube-shape">
+      <div id="vqvlt-content" class="vqvlt-content" style="animation: 3.4s linear 0s 1 normal none running turn-on;"><button id="vqvlt-home" class="vqvlt-home" onclick="newPage('c_video_list'); return false;">
+  <img src="./videos_files/vqvlt-home.gif" alt="Home button spinning globe">
 </button>
 <div class="home-navbar home-navbar-mobile">
-  <button onclick="window.location.href='c_video_list'">
+  <button onclick="newPage('c_video_list'); return false;">
     <img src="./videos_files/vq-hitone.png" alt="Home button VQVLT logo">
   </button>
 </div>
-<div class="awge-stars"></div>
+<div class="vqvlt-stars"></div>
 <div class="videos-content">
   <div class="videos-title-container">
     <!--<h1 class="videos-title">VIDEOS</h1>-->
@@ -85,7 +85,7 @@
       </button>
       <div class="videos-listing-info">
         <h1>Choppa go preview 2018</h1>
-        <h4>Playboi Carti</h4>
+        
       </div>
     </div>
     <!--<h1 class="videos-title">VIDEOS1</h1>-->
@@ -95,7 +95,7 @@
       </button>
       <div class="videos-listing-info">
         <h1>Houston 2015 #1</h1>
-        <h4>Playboi Carti</h4>
+        
       </div>
     </div>
     <!--<h1 class="videos-title">VIDEOS1</h1>-->
@@ -105,7 +105,7 @@
       </button>
       <div class="videos-listing-info">
         <h1>Houston 2015 #2</h1>
-        <h4>Playboi Carti</h4>
+        
       </div>
     </div>
     <!--<h1 class="videos-title">VIDEOS1</h1>-->
@@ -115,7 +115,7 @@
       </button>
       <div class="videos-listing-info">
         <h1>Houston 2015 #3</h1>
-        <h4>Playboi Carti</h4>
+        
       </div>
     </div>
     <!--<h1 class="videos-title">VIDEOS1</h1>-->
@@ -125,7 +125,7 @@
       </button>
       <div class="videos-listing-info">
         <h1>depressed hoes 2015</h1>
-        <h4>Playboi Carti</h4>
+        
       </div>
     </div>
     <!--<h1 class="videos-title">VIDEOS1</h1>-->
@@ -135,24 +135,84 @@
       </button>
       <div class="videos-listing-info">
         <h1>good credit (flex) preview</h1>
-        <h4>Playboi Carti</h4>
+        
       </div>
     </div>
 
   </div>
-  <div class="awge-copyright">
-    <h4 class="awge-copyright-text">
+  <div class="vqvlt-copyright">
+    <h4 class="vqvlt-copyright-text">
       ©&nbsp;&nbsp;2025&nbsp;&nbsp;VQVLT <br>
-      <span class="awge-tc awge-terms"><button>Terms and Conditions</button></span>
-      <br>
-      <span class="awge-tc awge-privacy"><button>Privacy Policy</button></span>
+      <span class="vqvlt-tc vqvlt-terms"><button>Terms and Conditions</button></span>
     </h4>
   </div>
 </div>
 
 <style>
-  .awge-tube-shape::before,
-  .awge-tube-shape::after {
+  .vqvlt-tube-shape::before,
+  .vqvlt-tube-shape::after {
     display: none !important;
   }
 </style>
+<script>
+function newPage(page) {
+  const pageMap = {
+    home: 'home.html',
+    contact: 'contact.html',
+    about: 'about.html',
+    tools: 'tools.html',
+    vault: 'vault.html',
+    media: 'media.html',
+    lost: 'lost.html',
+    chug: 'chug.html',
+    c_video_list: 'c_video_list.html',
+    c_pic_list: 'c_pic_list.html',
+    c_carti_videos: 'c_carti_videos.html',
+    terms: 'terms.html',
+    // add more mappings as needed
+  };
+  const url = pageMap[page] || (page + '.html');
+  fetch(url)
+    .then(response => response.text())
+    .then(html => {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = html;
+      const newContent = tempDiv.querySelector('#vqvlt-content');
+      if (newContent) {
+        const currentContent = document.querySelector('#vqvlt-content');
+        currentContent.replaceWith(newContent);
+        const newUrl = '/' + page;
+        history.pushState({page: page}, '', newUrl);
+        if (page === 'vault') {
+          attachVaultLoginLogic();
+        }
+      }
+    });
+}
+window.addEventListener('popstate', function(event) {
+  if (event.state && event.state.page) {
+    newPage(event.state.page);
+  }
+});
+function attachVaultLoginLogic() {
+  var pwInput = document.getElementById('vault-password');
+  var loginBtn = document.getElementById('vault-login-btn');
+  if (!pwInput || !loginBtn) return;
+  function checkVaultPassword() {
+    var pw = pwInput.value;
+    if (pw === 'vqvlt') {
+      document.getElementById('login-section').style.display = 'none';
+      document.getElementById('vault-content').style.display = 'block';
+    } else {
+      document.getElementById('login-error').style.display = 'block';
+    }
+  }
+  loginBtn.onclick = checkVaultPassword;
+  pwInput.onkeydown = function(e) {
+    if (e.key === 'Enter') checkVaultPassword();
+  };
+}
+if (window.location.pathname.replace(/^\//, '').replace(/\.html$/, '') === 'vault') {
+  attachVaultLoginLogic();
+}
+</script>
