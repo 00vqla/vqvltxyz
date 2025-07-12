@@ -107,7 +107,7 @@
     </div>
     <div class="about-info">
       <h1 class="about-info-text">
-        <span class="about-artists-artist" for="Carti"><button onclick="newPage('c_carti_videos'); return false;">Playboi Carti</button></span><br>
+        <span class="about-artists-artist" for="Carti"><button onclick="window.location.href='c_carti_videos.html';">Playboi Carti</button></span><br>
         <span class="about-artists-artist" for="Ken"><button>Ken Carson</button></span><br>
         <span class="about-artists-artist" for="Lone"><button>Destroy Lonely</button></span><br>
         <span class="about-artists-artist" for="Lil O"><button>Osamason</button></span><br>
@@ -135,7 +135,7 @@
     </div>
     <div class="about-third-text-mobile">
       <h1 class="about-info-text">
-        <span class="about-artists-artist" for="Carti"><button onclick="newPage('c_carti_videos'); return false;">Playboi Carti</button></span><br>
+        <span class="about-artists-artist" for="Carti"><button onclick="window.location.href='c_carti_videos.html';">Playboi Carti</button></span><br>
         <span class="about-artists-artist" for="Ken"><button>Ken Carson</button></span><br>
         <span class="about-artists-artist" for="Lone"><button>Destroy Lonely</button></span><br>
         <span class="about-artists-artist" for="Lil O"><button>Osamason</button></span><br>
@@ -319,26 +319,6 @@ window.addEventListener('popstate', function(event) {
     newPage(event.state.page);
   }
 });
-function attachVaultLoginLogic() {
-  var pwInput = document.getElementById('vault-password');
-  var loginBtn = document.querySelector('#login-section button');
-  if (!pwInput || !loginBtn) return;
-  function checkVaultPassword() {
-    var pw = pwInput.value;
-    if (pw === 'vqvlt') {
-      document.getElementById('login-section').style.display = 'none';
-      document.getElementById('vault-content').style.display = 'block';
-    } else {
-      document.getElementById('login-error').style.display = 'block';
-    }
-  }
-  loginBtn.onclick = checkVaultPassword;
-  pwInput.onkeydown = function(e) {
-    if (e.key === 'Enter') checkVaultPassword();
-  };
-}
-if (window.location.pathname.replace(/^\//, '').replace(/\.html$/, '') === 'vault') {
-  attachVaultLoginLogic();
-}
+
 </script>
 </body></html>

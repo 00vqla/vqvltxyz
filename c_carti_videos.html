@@ -47,11 +47,51 @@
     <meta name="google-site-verification" content="UPXlhM6TpbXIphqwLtIpuMkTm1qxSFiXxZ1P1zoHn5k">
     <link rel="stylesheet" href="./videos_files/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link href="./videos_files/video-js.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./videos_files/main.min.css">
+    <link rel="stylesheet" type="text/css" href="./global/main.min.css">
     <script src="./videos_files/jquery.min.js"></script>
     <script src="./videos_files/index.umd.min.js"></script>
     <script src="./videos_files/three.min.js"></script>
     <script async="" type="text/javascript" src="./videos_files/klaviyo.js"></script>
+    <script>
+var videos = {
+  1: {
+    link: "./videos_files/choppago.mp4",
+    gif: "./videos_files/neon-2-cropped.gif",
+    title: "Choppa go preview 2018",
+    desc: "Playboi Carti"
+  },
+  2: {
+    link: "./videos_files/Houston2015/houston1.mp4",
+    gif: "./videos_files/neon-2-cropped.gif",
+    title: "Houston 2015 #1",
+    desc: "Playboi Carti"
+  },
+  3: {
+    link: "./videos_files/Houston2015/houston2.mp4",
+    gif: "./videos_files/neon-2-cropped.gif",
+    title: "Houston 2015 #2",
+    desc: "Playboi Carti"
+  },
+  4: {
+    link: "./videos_files/Houston2015/houston3.mp4",
+    gif: "./videos_files/neon-2-cropped.gif",
+    title: "Houston 2015 #3",
+    desc: "Playboi Carti"
+  },
+  5: {
+    link: "./videos_files/depressedhoes.mp4",
+    gif: "./videos_files/neon-2-cropped.gif",
+    title: "depressed hoes 2015",
+    desc: "Playboi Carti"
+  },
+  6: {
+    link: "./videos_files/goodcredit.mp4",
+    gif: "./videos_files/neon-2-cropped.gif",
+    title: "good credit (flex) preview",
+    desc: "Playboi Carti"
+  }
+};
+</script>
     <script src="./videos_files/definitions.min.js"></script>
     <script src="./videos_files/assets.min.js"></script>
     <script src="./videos_files/main.min.js"></script>
@@ -194,25 +234,5 @@ window.addEventListener('popstate', function(event) {
     newPage(event.state.page);
   }
 });
-function attachVaultLoginLogic() {
-  var pwInput = document.getElementById('vault-password');
-  var loginBtn = document.getElementById('vault-login-btn');
-  if (!pwInput || !loginBtn) return;
-  function checkVaultPassword() {
-    var pw = pwInput.value;
-    if (pw === 'vqvlt') {
-      document.getElementById('login-section').style.display = 'none';
-      document.getElementById('vault-content').style.display = 'block';
-    } else {
-      document.getElementById('login-error').style.display = 'block';
-    }
-  }
-  loginBtn.onclick = checkVaultPassword;
-  pwInput.onkeydown = function(e) {
-    if (e.key === 'Enter') checkVaultPassword();
-  };
-}
-if (window.location.pathname.replace(/^\//, '').replace(/\.html$/, '') === 'vault') {
-  attachVaultLoginLogic();
-}
+
 </script>
