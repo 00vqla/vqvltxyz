@@ -96,14 +96,14 @@
 <div class="vqvlt-stars"></div>
 <div class="vqvlt-space-container">
   <div class="vqvlt-space-wrapper">
-    <h1 class="vqvlt-space-header">vq vault</h1>
-    <h4 class="vqvlt-space-text">
+    <h1 class="vqvlt-space-header" style="text-align: center;">vq vault</h1>
+    <h4 class="vqvlt-space-text" style="text-align: center;">
       World's largest vault of unreleased.
     </h4>
     <br>
     <hr>
     <br>
-    <h1 class="vqvlt-space-option" id="about-artists">
+    <h1 class="vqvlt-space-text" id="about-artists" style="text-align: center;">
       <button onclick="newPage('lost'); return false;">Read More</button>
     </h1>
   </div>
@@ -229,4 +229,49 @@
     </script>
   
 
-<deepl-input-controller translate="no"><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://cofdbpoegempjloogbagkncekinflcnj/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller></body></html>
+<deepl-input-controller translate="no"><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://cofdbpoegempjloogbagkncekinflcnj/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller>
+<script>
+function newPage(page) {
+  const pageMap = {
+    home: 'home.html',
+    contact: 'contact.html',
+    about: 'about.html',
+    tools: 'tools.html',
+    vault: 'vault.html',
+    media: 'media.html',
+    lost: 'lost.html',
+    chug: 'chug.html',
+    c_video_list: 'c_video_list.html',
+    c_pic_list: 'c_pic_list.html',
+    c_carti_videos: 'c_carti_videos.html',
+    terms: 'terms.html',
+    // add more mappings as needed
+  };
+  const url = pageMap[page] || (page + '.html');
+  fetch(url)
+    .then(response => response.text())
+    .then(html => {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = html;
+      const newContent = tempDiv.querySelector('#vqvlt-content');
+      if (newContent) {
+        const currentContent = document.querySelector('#vqvlt-content');
+        // Remove the turn-on animation from the new content
+        newContent.style.animation = 'none';
+        currentContent.replaceWith(newContent);
+        const newUrl = '/' + page;
+        history.pushState({page: page}, '', newUrl);
+        if (page === 'vault') {
+          attachVaultLoginLogic();
+        }
+      }
+    });
+}
+window.addEventListener('popstate', function(event) {
+  if (event.state && event.state.page) {
+    newPage(event.state.page);
+  }
+});
+
+</script>
+</body></html>
